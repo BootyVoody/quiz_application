@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart'; // Material Design
+import 'package:quiz_app/row_column.dart';
 
 void main() => runApp(MyApp()); // runApp() запускает виджет, который содержит в
                                 // кучу других виджетов.
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData( // theme - тема приложения.
           primarySwatch: Colors.amber // primarySwatch - глобально задает тему.
         ),
-        home: HomePage(), // home root'вый виджет. 
+        home: MyRowColumn(), // home root'вый виджет. 
       );
     }
 } 
