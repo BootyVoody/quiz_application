@@ -12,7 +12,7 @@ class MyRowColumn extends StatelessWidget {
       ),
       body: Container(
         color: Colors.grey,
-        child: Column(
+        child: Row(
           mainAxisSize: MainAxisSize.max, // mainAxisSize управляет
                                           // пространством в строке. Оно опреде
                                           // ляет сколько места строка или стол
@@ -25,7 +25,7 @@ class MyRowColumn extends StatelessWidget {
                                           // или столбце по главной оси.
                                           // MainAxisSize должно иметь значение
                                           // max, чтобы работал Alignment. 
-          crossAxisAlignment: CrossAxisAlignment.stretch, // crossAxisAlignment  
+          crossAxisAlignment: CrossAxisAlignment.start, // crossAxisAlignment  
                                                       // выравнивание элементов
                                                       // по поперечной оси.
           children: [
@@ -46,7 +46,7 @@ class ColorBox extends StatelessWidget {
       width: 80,
       height: 80,
       decoration: BoxDecoration( // decoration - задает стиль Container()
-        color: Colors.redAccent, // redAccent[400] - 400 - задает тон цвета
+        color: Colors.redAccent[400], // redAccent[400] - 400 - задает тон цвета
         border: Border.all(), // border - границы
       ),
     );
@@ -57,8 +57,8 @@ class BiggerColorBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
       return Container(
-        width: 100,
-        height: 80,
+        width: 80,
+        height: 100,
         decoration: BoxDecoration(
           color: Colors.redAccent[400],
           border: Border.all(),
