@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart'; // Material Design
 import 'package:quiz_app/main_container.dart';
+import 'package:quiz_app/my_flexible.dart';
 import 'package:quiz_app/row_column.dart';
 import 'package:flutter/rendering.dart' show debugPaintSizeEnabled;
 
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
           // theme - тема приложения.
           primarySwatch: Colors.amber // primarySwatch - глобально задает тему.
           ),
-      home: MyContainer(), // home root'вый виджет.
+      home: MyFlex(), // home root'вый виджет.
     );
   }
 }
