@@ -5,7 +5,7 @@ import 'package:flutter/rendering.dart' show debugPaintSizeEnabled;
 void main() {
   debugPaintSizeEnabled = false;
   runApp(MyApp()); // runApp() запускает виджет, который содержит в
-                   // кучу других виджетов.
+  // кучу других виджетов.
 }
 // Всё во Flutter является виджетом. Виджеты описывают как должен выглядеть UI
 // нашего приложения. По сути Widget - это обычный класс в языке Dart, но чтобы
@@ -29,9 +29,16 @@ class MyApp extends StatelessWidget {
       title: 'Quiz Application', // Параметр title задает название для прилож
       // ения.
       theme: ThemeData(
-          // theme - тема приложения.
-          primarySwatch: Colors.deepPurple // primarySwatch - глобально задает тему.
+        // theme - тема приложения.
+        primarySwatch: Colors.indigo, // primarySwatch - глобально задает тему.
+        textTheme: TextTheme(
+          caption: TextStyle(
+            fontSize: 22.0,
+            color: Colors.white,
           ),
+        ),
+        fontFamily: 'Georgia',
+      ),
       home: HomePage(), // home root'вый виджет.
     );
   }
