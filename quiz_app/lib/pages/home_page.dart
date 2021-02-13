@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/models/Question.dart';
 import 'package:quiz_app/widgets/answer.dart';
+import 'package:quiz_app/widgets/progress_bar.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -29,6 +30,9 @@ class _HomePageState extends State<HomePage> {
     } else {
       _icons.add(Icon(Icons.brightness_1, color: Color(0XFF000000)));
     }
+
+    // увеличиваем индекс вопроса для перехода к следующему вопросу
+    _questionIndex += 1;
   });
 
   @override
@@ -58,6 +62,11 @@ class _HomePageState extends State<HomePage> {
           // div в web, может принимать границы, размеры,
           // отступы и т.д.
           children: [
+            ProgressBar(
+              icons: _icons,
+              count: _questionIndex,
+              total: data.questions.length,
+            ),
             Container(
               padding: const EdgeInsets.all(10.0),
               child: Text(
@@ -65,15 +74,13 @@ class _HomePageState extends State<HomePage> {
                 style: Theme.of(context).textTheme.caption,
               ),
             ),
-            ...data.questions[_questionIndex].answers
-                .map((value) => Answer(
-                      title: value['answer'],
-                    ))
-                .toList(),
-            RaisedButton(
-              onPressed: () => setState(() => _questionIndex++),
-              child: Text('Далее'),
-            ),
+            ...data.questions[_questionIndex].answers.map(
+              (value) => Answer(
+                title: value['answer'],
+                onChangeAnswer: _onChangeAnswer,
+                isCorrect: value.containsKey('isCorrect') ? true : false,
+              )
+            ).toList(),
           ],
         ),
       ),
