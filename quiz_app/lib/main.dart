@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart'; // Material Design
 import 'package:quiz_app/pages/home_page.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/rendering.dart' show debugPaintSizeEnabled;
 
 void main() {
@@ -31,13 +32,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         // theme - тема приложения.
         primarySwatch: Colors.indigo, // primarySwatch - глобально задает тему.
-        textTheme: TextTheme(
-          caption: TextStyle(
-            fontSize: 22.0,
-            color: Colors.white,
-          ),
+        textTheme: GoogleFonts.openSansCondensedTextTheme(
+          Theme.of(context).textTheme,
         ),
-        fontFamily: 'Georgia',
       ),
       home: HomePage(), // home root'вый виджет.
     );
